@@ -8,12 +8,12 @@ package ui;
  *
  * @author sivaranjanis
  */
-public class BuyerSignUp extends javax.swing.JPanel {
+public class buyerSignUp extends javax.swing.JPanel {
 
     /**
      * Creates new form sellerSignUp
      */
-    public BuyerSignUp() {
+    public buyerSignUp() {
         initComponents();
     }
 

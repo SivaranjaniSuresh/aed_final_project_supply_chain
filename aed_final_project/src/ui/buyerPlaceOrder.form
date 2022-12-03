@@ -30,9 +30,11 @@
                   <Component id="lblSeller" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblItem" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddMore" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtAddAnother" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
@@ -65,7 +67,12 @@
                   <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="395" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddMore" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAddAnother" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="354" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,6 +165,13 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddMore">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Do you want to add another Purchase?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAddAnother">
     </Component>
   </SubComponents>
 </Form>
