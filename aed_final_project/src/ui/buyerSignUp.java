@@ -4,6 +4,10 @@
  */
 package ui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.*;
+
 /**
  *
  * @author sivaranjanis
@@ -55,6 +59,12 @@ public class buyerSignUp extends javax.swing.JPanel {
 
         lblPassword.setText("Create Password:");
 
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserNameActionPerformed(evt);
+            }
+        });
+
         lblName.setText("Name:");
 
         lblPhoneNumber.setText("Phone Number:");
@@ -64,6 +74,11 @@ public class buyerSignUp extends javax.swing.JPanel {
         lblCountry.setText("Country:");
 
         btnSignUp.setText("Sign Up");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,13 +102,13 @@ public class buyerSignUp extends javax.swing.JPanel {
                                     .addComponent(lblPhoneNumber)
                                     .addComponent(lblCountry))
                                 .addGap(183, 183, 183)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtPassword1)
+                                    .addComponent(txtPhoneNumber)
+                                    .addComponent(txtEmailAddress)
+                                    .addComponent(txtCountry)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(297, 297, 297)
                         .addComponent(btnSignUp)))
@@ -140,6 +155,37 @@ public class buyerSignUp extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
+        String name = txtPassword1.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String emailAddress = txtEmailAddress.getText();
+        String country = txtCountry.getText();
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_proj","root","aishu$V22pwd")) {
+                Statement stmt = con.createStatement();
+                System.out.print("connection created");
+                String query1 = "INSERT INTO users" + "(name, phone_number,email,country,username,password)" +
+                        "VALUES ('" +name+"','" +phoneNumber+"','" +emailAddress+"', '" +country+"' , '" +username+"', '" +password+"')";
+                stmt.executeUpdate(query1);
+                System.out.print("record inserted");
+                con.close();
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(buyerSignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
