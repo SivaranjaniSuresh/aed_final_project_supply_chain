@@ -38,7 +38,7 @@
                   <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                   <Component id="cbCategory" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAddAnother" min="-2" pref="72" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="282" max="32767" attributes="0"/>
           </Group>
